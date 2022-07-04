@@ -4,7 +4,9 @@ import Link from 'next/link'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 
-export default function Home({ blogs }) {
+export default function Home({ blogs}) {
+
+  console.log(blogs)
   return (<div className={styles['container']}>
     <Head>
       <title>Demo Blog</title>

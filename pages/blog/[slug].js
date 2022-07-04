@@ -4,6 +4,7 @@ import matter from 'gray-matter'
 import Head from 'next/head'
 
 export default function Blog({ frontmatter, markdown}) {
+
   return (
     <div>
       <Head>
