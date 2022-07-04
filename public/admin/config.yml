@@ -16,3 +16,13 @@ collections:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime", date_format: "DD.MM.YYYY", time_format: "HH:mm", format: "LLL"}
       - {label: "Body", name: "body", widget: "markdown"}
+  - name: "photo"
+    label: "Photo"
+    folder: "content/photos"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Titre", name: "titre", widget: "string"}
+      - {label: "Catégories", name: "categories", widget: "array"}
+      - {label: "Description", name: "description", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown"}
