@@ -3,6 +3,7 @@ import matter from 'gray-matter'
 import Link from 'next/link'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+import Image from 'next/image'
 
 export default function Home({ blogs }) {
 
@@ -47,7 +48,14 @@ export default function Home({ blogs }) {
 </form>
 {
   images.map(image => {
-    return <img src={image.default.src}/>;
+    return (
+      <Image
+        src={image.default.src}
+        alt='random picture'
+        width={700}
+        height={700}
+      />
+    )
   })
 }
   </div>)
