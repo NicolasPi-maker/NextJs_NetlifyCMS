@@ -14,7 +14,7 @@ export default function Home({ blogs }) {
     <ul className={styles['blog-list']}>
       {blogs.map(blog => (
         <li key={blog.slug}>
-          <Link href={`/blog/${blog.slug}`}>
+          <Link href={`/blgiog/${blog.slug}`}>
             <a>{blog.date}:{blog.title}</a>
           </Link>
         </li>
@@ -25,7 +25,7 @@ export default function Home({ blogs }) {
 
 export async function getStaticProps() {
   // List of files in blgos folder
-  const filesInBlogs = fs.readdirSync('./content/photos')
+  const filesInBlogs = fs.readdirSync('./content/blogs')
 
   // Get the front matter and slug (the filename without .md) of all files
   const blogs = filesInBlogs.map(filename => {
