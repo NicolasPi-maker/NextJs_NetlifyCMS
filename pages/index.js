@@ -14,12 +14,27 @@ export default function Home({ blogs }) {
     <ul className={styles['blog-list']}>
       {blogs.map(blog => (
         <li key={blog.slug}>
-          <Link href={`/blgiog/${blog.slug}`}>
+          <Link href={`/blog/${blog.slug}`}>
             <a>{blog.date}:{blog.title}</a>
           </Link>
         </li>
       ))}
     </ul>
+    <form name="contact" method="POST" data-netlify="true">
+  <p>
+    <label>Your Name: <input type="text" name="name" /></label>
+  </p>
+  <p>
+    <label>Your Email: <input type="email" name="email" /></label>
+  </p>
+  <p>
+    <label>Message: <textarea name="message"></textarea></label>
+  </p>
+  <p>
+    <button type="submit">Send</button>
+  </p>
+  <input type="hidden" name="form-name" value="contact"/>
+</form>
   </div>)
 }
 
@@ -29,7 +44,7 @@ export async function getStaticProps() {
 
   // Get the front matter and slug (the filename without .md) of all files
   const blogs = filesInBlogs.map(filename => {
-    const file = fs.readFileSync(`./content/photos/${filename}`, 'utf8')
+    const file = fs.readFileSync(`./content/blogs/${filename}`, 'utf8')
     const matterData = matter(file)
 
     return {
