@@ -4,7 +4,15 @@ import Link from 'next/link'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 
-export default function Home({ blogs}) {
+export default function Home({ blogs }) {
+
+  function importAll(r) {
+    return r.keys().map(r);
+  }
+  
+  const images = importAll(require.context('../public/uploads/', false, /\.(png|jpe?g|svg)$/));
+
+  console.log(images);
 
   console.log(blogs)
   return (<div className={styles['container']}>
@@ -37,6 +45,11 @@ export default function Home({ blogs}) {
   </p>
   <input type="hidden" name="form-name" value="contact"/>
 </form>
+{
+  images.map(image => {
+    return <img src={image.default.src}/>;
+  })
+}
   </div>)
 }
 
