@@ -47,9 +47,9 @@ export default function Home({ blogs }) {
   <input type="hidden" name="form-name" value="contact"/>
 </form>
 {
-  images.map(image => {
+  images.map((image, i) => {
     return (
-      <Image
+      <Image key={i}
         src={image.default.src}
         alt='random picture'
         width={700}
